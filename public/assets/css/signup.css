@@ -1,0 +1,44 @@
+.form-container {
+  margin: 3em;
+  display: flex;
+  flex-direction: column;
+}
+.form-title {
+  font-size: 1.5em;
+}
+.form-container > form {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0;
+}
+.form-container > form > label {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+.form-container > form > input {
+  padding: 1em 6em;
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  font-size: 0.875em;
+  text-align: left;
+  margin: 0.5em 0;
+}
+.form-container > form > button {
+  margin: 3em 0;
+  border: none;
+  border-radius: 8px;
+  padding: 1em 6.3em;
+  color: #fff;
+  background-color: var(--dark-color);
+  cursor: pointer;
+}
+.back {
+  margin: 1em;
+}
+.back > a {
+  color: #000;
+  text-decoration: none;
+}
+.back > a > i {
+  font-size: 20px;
+}

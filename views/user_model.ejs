@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/user_model.css">
+  <script src="/assets/js/script.js"></script>
+  <title><%= title %></title>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h3>My Thoughts</h3>
+      <p>recent ideas</p>
+     
+      <span><a href="https://wa.me/0501597710"> <i class='bx bxl-telegram'></i></a></span>
+    </div>
+    <div id="form-container">
+       <form action="/newIdea" method="post">
+        <h5>New Idea</h5>
+        <span id="closeForm">X</span>
+        <label for="idea">Idea</label>
+        <input type="text" name="idea" id="">
+        <label for="details">Details</label>
+        <textarea name="details" id="" cols="30" rows="10"></textarea>
+        <button type="submit" >Done</button>
+      </form>
+    </div>
+    <div class="info">
+        <span id="closeInfo">X</span>
+      Please send any problems or comments<br>
+       you have about this app to <a href="mailto:otnelson@icloud.com">otnelson@icloud.com</a>
+      <br> or click the top right button to chat with customer service
+       <br>Your reviews and comments are greatly needed. Enjoy the app.Thank You.
+    </div>
+    <div class="notes">
+      <div class="row">
+        <% note.forEach(note =>{ %>
+        <div class="column">
+           <h4><a href='<%=`/idea/${note._id}`%>'><%= note.idea %></a></h4>
+           <p><%= note.details %></p>
+           
+           <span><a href="<%= `/thoughts/${note._id}/delete?_method=DELETE`%>"><i class='bx bx-trash'></i></a></span>
+        </div>
+        <%})%>
+      </div>
+    </div>
+    <div id="add">
+      <i class='bx bx-plus'></i>
+    </div>
+  </div>
+  <script>
+  const addF = document.getElementById("add");
+const formC = document.getElementById("form-container");
+const closeForm = document.getElementById('closeForm');
+const closeInfo = document.getElementById('closeInfo');
+const info = document.querySelector('.info');
+
+addF.addEventListener("click", (event) => {
+  event.preventDefault();
+  formC.style.display = "block";
+});
+closeForm.addEventListener('click',(event) =>{
+  event.preventDefault();
+  formC.style.display = 'none';
+})
+closeInfo.addEventListener('click',(event) =>{
+  event.preventDefault();
+  info.style.display = 'none';
+})
+
+  </script>
+</body>
+</html>
